@@ -1,0 +1,9 @@
+### upload test
+POST 127.0.0.1:8080/api/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="test.tmp"
+
+< /Users/kakao/dev/test/app.jar
+--WebAppBoundary--
