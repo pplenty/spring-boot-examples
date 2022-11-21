@@ -1,22 +1,18 @@
 package io.pplenty.upload.service
 
 import org.springframework.stereotype.Service
-import org.springframework.util.FileCopyUtils
 import org.springframework.web.multipart.MultipartFile
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.StandardCopyOption
 
 @Service
 class Uploader {
 
-    @Throws(InterruptedException::class, IOException::class)
     fun process(file: MultipartFile) {
+        println("${file.name} : ${file.size}")
         val initialStream = file.inputStream
-        val buffer = ByteArray(initialStream.available())
-        initialStream.read(buffer)
-        val output = FileOutputStream(File("/Users/kakao/dev/test/target.tmp"))
-
-        FileCopyUtils.copy(initialStream, output)
+        Files.copy(initialStream, Path.of("/Users/kakao/dev/test/target.tmp"), StandardCopyOption.REPLACE_EXISTING)
+        println("${file.name} : ${file.size}")
     }
 }
