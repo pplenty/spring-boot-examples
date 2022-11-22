@@ -1,0 +1,20 @@
+### gateway
+POST 127.0.0.1:8081/upload-api/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="test.tmp"
+
+< /Users/kakao/dev/test/test5000.zip
+--WebAppBoundary--
+
+
+### DIRECT
+POST 127.0.0.1:8080/api/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="test.tmp"
+
+< /Users/kakao/dev/test/test5000.zip
+--WebAppBoundary--
